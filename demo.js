@@ -1,5 +1,5 @@
 'use strict';
-const studies=[['breath','نفس آرام','QUIET BREATH','تغییر آرامِ وضوح و مقیاس؛ ساده و بی‌حاشیه.'],['line','خط معماری','ARCHITECTURAL LINE','یک خط باریک، برای نمایش جریان بارگذاری.'],['reveal','آشکار شدن','SOFT REVEAL','عبور نرم از فرم لوگو، با حفظ جزئیات اصلی.'],['orbit','مدار آرام','SILENT ORBIT','یک نقطه در گردش؛ لوگو ثابت و در مرکز.'],['frame','قاب آسمانه','BLUEPRINT FRAME','دو گوشه ظریف، با الهام از قاب نقشه‌های معماری.'],['rise','ظهور نرم','GENTLE ARRIVAL','حرکت کوتاه به بالا و محو شدن تدریجی.']];
+const studies=[['draw','ترسیم خطوط','LINE BY LINE','خطوط لوگو به ترتیب باز می‌شوند؛ سپس نام استودیو.'],['assemble','ساخت فرم','FORM ASSEMBLY','اجزای لوگو از دو سمت به فرم اصلی می‌رسند.'],['weave','بافت خطوط','LINE WEAVE','حرکت متناوب خطوط، با نوشته‌ای آرام در پایین.'],['pulse','موج در فرم','FORM RHYTHM','موجی ظریف از بالای نشان تا کلمات زیر لوگو.'],['type','امضای نوشتاری','WORD REVEAL','نشان ثابت؛ سه واژه با ریتمی نرم آشکار می‌شوند.'],['signature','امضای آسمانه','ASMANE SIGNATURE','ساخت مرحله‌ای نشان، سپس ظاهرشدن نوشته.']];
 let theme='light',speed=2.4,preview=null,exitButton=null,returnFocus=null,toastTimer,previewTimer;
 const instances=[];
 function closePreview(){clearTimeout(previewTimer);if(!preview)return;preview.destroy();preview=null;exitButton.remove();exitButton=null;document.querySelector('.wrap').inert=false;returnFocus?.focus();}
