@@ -58,3 +58,15 @@
 @keyframes asm-rhythm{0%,100%{opacity:.25}35%,65%{opacity:1}}
 @keyframes asm-word{0%,14%{opacity:0;transform:translateY(5px);clip-path:inset(0 100% 0 0)}45%,80%{opacity:1;transform:translateY(0);clip-path:inset(0)}100%{opacity:0;transform:translateY(0);clip-path:inset(0)}}
 @media(prefers-reduced-motion:reduce){.asm-piece{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}}
+/* 07–12: screen-edge entrance, assembled hold, load-triggered scatter. */
+.asm-loader.asm-scene{overflow:hidden;--edge-x:65vw;--edge-y:65vh}
+.asm-scene .asm-piece{animation:asm-arrive 1.4s cubic-bezier(.16,1,.3,1) var(--arrival-delay) both;will-change:transform,opacity}
+.asm-scene.asm-inline{--edge-x:245px;--edge-y:190px}
+.asm-scene.asm-inline .asm-piece{animation-name:asm-scene-loop;animation-duration:calc(var(--asm-speed)*3);animation-iteration-count:infinite}
+.asm-scene.asm-scattering{animation:asm-backdrop-out 1.4s ease forwards;pointer-events:none}
+.asm-scene.asm-scattering .asm-piece{animation:asm-depart 1.05s cubic-bezier(.5,0,.8,.4) var(--depart-delay) both}
+@keyframes asm-arrive{from{opacity:0;transform:translate(calc(var(--fly-x)*var(--edge-x)),calc(var(--fly-y)*var(--edge-y))) rotate(var(--fly-rotation)) scale(.8)}to{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
+@keyframes asm-depart{from{opacity:1;transform:translate(0,0) rotate(0) scale(1)}to{opacity:0;transform:translate(calc(var(--fly-x)*var(--edge-x)),calc(var(--fly-y)*var(--edge-y))) rotate(var(--fly-rotation)) scale(.8)}}
+@keyframes asm-scene-loop{0%,8%{opacity:0;transform:translate(calc(var(--fly-x)*var(--edge-x)),calc(var(--fly-y)*var(--edge-y))) rotate(var(--fly-rotation)) scale(.8)}35%,65%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}90%,100%{opacity:0;transform:translate(calc(var(--fly-x)*var(--edge-x)),calc(var(--fly-y)*var(--edge-y))) rotate(var(--fly-rotation)) scale(.8)}}
+@keyframes asm-backdrop-out{0%,55%{background:var(--asm-bg)}100%{background:transparent}}
+@media(prefers-reduced-motion:reduce){.asm-scene .asm-piece{animation:none!important;transform:none!important;opacity:1!important}}
